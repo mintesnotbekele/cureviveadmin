@@ -19,7 +19,7 @@ class TestimonialController extends AdminController
 
     /**
      * Make a grid builder.
-     *
+     * 
      * @return Grid
      */
     protected function grid()
@@ -28,8 +28,12 @@ class TestimonialController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('username', __('Username'));
-        $grid->column('profilepic', __('Profilepic'));
+        $grid->column('profilepic', 'Preview Image')->display(function ($imagePath) {
+            return '<img src="'. asset($imagePath) .'" style="max-width:100px;max-height:100px;">';
+        });
         $grid->column('testimony', __('Testimony'));
+        $grid->column('location', __('Location'));
+        
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -65,8 +69,9 @@ class TestimonialController extends AdminController
         $form = new Form(new testimonial());
 
         $form->text('username', __('Username'));
-        $form->text('profilepic', __('Profilepic'));
+        $form->image('profilepic', __('profilepic'));
         $form->text('testimony', __('Testimony'));
+        $form->text('location', __('Location'));
 
         return $form;
     }

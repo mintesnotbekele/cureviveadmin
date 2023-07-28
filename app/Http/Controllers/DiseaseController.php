@@ -10,4 +10,13 @@ class DiseaseController extends Controller
     {
         return disease::latest()->get();
     }
+
+        /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        return disease::findOrFail($id);
+    
+    }
 }

@@ -24,9 +24,9 @@ class NewsAndArticleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Permission $permission)
+    public function show(string $id)
     {
-        //
+        return newsandarticle::findOrFail($id);
     }
 
     /**

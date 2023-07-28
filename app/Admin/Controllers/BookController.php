@@ -2,20 +2,20 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\disease;
+use App\Models\book;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
-class DiseaseController extends AdminController
+class BookController extends AdminController
 {
     /**
      * Title for current resource.
      *
      * @var string
      */
-    protected $title = 'disease';
+    protected $title = 'book';
 
     /**
      * Make a grid builder.
@@ -24,20 +24,14 @@ class DiseaseController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new disease());
+        $grid = new Grid(new book());
 
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
-        $grid->column('agegroup', __('Age Group'));
-        $grid->column('duration', __('Duration'));
-        $grid->column('treatments', __('Treatment'));
-        $grid->column('mode', __('Mode'));
-        
+        $grid->column('email', __('Email'));
+        $grid->column('treatmentfor', __('Treatmentfor'));
+        $grid->column('phone', __('Phone'));
         $grid->column('description', __('Description'));
-        $grid->column('picture', 'Preview Image')->display(function ($imagePath) {
-            return '<img src="'. asset($imagePath) .'" style="max-width:100px;max-height:100px;">';
-        });
-        $grid->column('videolink', __('Video Link'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -52,9 +46,16 @@ class DiseaseController extends AdminController
      */
     protected function detail($id)
     {
-        $show = new Show(disease::findOrFail($id));
+        $show = new Show(book::findOrFail($id));
 
-
+        $show->field('id', __('Id'));
+        $show->field('name', __('Name'));
+        $show->field('email', __('Email'));
+        $show->field('treatmentfor', __('Treatmentfor'));
+        $show->field('phone', __('Phone'));
+        $show->field('description', __('Description'));
+        $show->field('created_at', __('Created at'));
+        $show->field('updated_at', __('Updated at'));
 
         return $show;
     }
@@ -66,17 +67,13 @@ class DiseaseController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new disease());
+        $form = new Form(new book());
 
         $form->text('name', __('Name'));
+        $form->email('email', __('Email'));
+        $form->text('treatmentfor', __('Treatmentfor'));
+        $form->mobile('phone', __('Phone'));
         $form->text('description', __('Description'));
-        $form->image('picture', __('Picture'));
-        $form->text('videolink', __('videolink'));
-        $form->text('agegroup', __('agegroup'));
-        $form->text('duration', __('duration'));
-        $form->text('treatments', __('treatments'));
-        $form->text('mode', __('mode'));
-
 
         return $form;
     }

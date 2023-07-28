@@ -2,20 +2,20 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\disease;
+use App\Models\team;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
-class DiseaseController extends AdminController
+class TeamController extends AdminController
 {
     /**
      * Title for current resource.
      *
      * @var string
      */
-    protected $title = 'disease';
+    protected $title = 'team';
 
     /**
      * Make a grid builder.
@@ -24,22 +24,14 @@ class DiseaseController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new disease());
-
+        $grid = new Grid(new team());
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
-        $grid->column('agegroup', __('Age Group'));
-        $grid->column('duration', __('Duration'));
-        $grid->column('treatments', __('Treatment'));
-        $grid->column('mode', __('Mode'));
-        
-        $grid->column('description', __('Description'));
+        $grid->column('role', __('Role'));
         $grid->column('picture', 'Preview Image')->display(function ($imagePath) {
             return '<img src="'. asset($imagePath) .'" style="max-width:100px;max-height:100px;">';
         });
-        $grid->column('videolink', __('Video Link'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+
 
         return $grid;
     }
@@ -52,7 +44,7 @@ class DiseaseController extends AdminController
      */
     protected function detail($id)
     {
-        $show = new Show(disease::findOrFail($id));
+        $show = new Show(team::findOrFail($id));
 
 
 
@@ -66,17 +58,11 @@ class DiseaseController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new disease());
-
+        $form = new Form(new team());
         $form->text('name', __('Name'));
-        $form->text('description', __('Description'));
+        $form->text('role', __('ROle'));
         $form->image('picture', __('Picture'));
-        $form->text('videolink', __('videolink'));
-        $form->text('agegroup', __('agegroup'));
-        $form->text('duration', __('duration'));
-        $form->text('treatments', __('treatments'));
-        $form->text('mode', __('mode'));
-
+        
 
         return $form;
     }

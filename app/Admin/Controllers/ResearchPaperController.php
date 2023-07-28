@@ -28,7 +28,8 @@ class ResearchPaperController extends AdminController
 
         $grid->column('id', __('Id'));
         $grid->column('title', __('Title'));
-        $grid->column('link', __('Link'));
+        $grid->column('category', __('Category'));
+        $grid->column('file', __('File'));
         $grid->column('description', __('Description'));
 
         return $grid;
@@ -59,9 +60,10 @@ class ResearchPaperController extends AdminController
         $form = new Form(new researchpaper());
 
         $form->text('title', __('Title'));
-        $form->text('link', __('Link'));
+        $form->text('category', __('Category'));
         $form->text('description', __('Description'));
-
+        $form->file('file', __('File'));
+        
         return $form;
     }
 }

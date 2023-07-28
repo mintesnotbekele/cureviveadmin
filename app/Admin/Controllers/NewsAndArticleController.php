@@ -30,11 +30,15 @@ class NewsAndArticleController extends AdminController
         $grid->column('title', __('Title'));
         $grid->column('description', __('Description'));
         $grid->column('category', __('Category'));
-        $grid->column('tags', __('Tags'));
+        $grid->column('tag', __('Tag'));
         $grid->column('socialmedia', __('Social Media'));
+        $grid->column('picture', 'Preview Image')->display(function ($imagePath) {
+            return '<img src="'. asset($imagePath) .'" style="max-width:100px;max-height:100px;">';
+        });
+     
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
-        
+ 
         return $grid;
     }
     
@@ -54,7 +58,7 @@ class NewsAndArticleController extends AdminController
         return $show;
     }
 
-    /**
+      /**
      * Make a form builder.
      *
      * @return Form
@@ -66,14 +70,12 @@ class NewsAndArticleController extends AdminController
         $form->text('title', __('Title'));
         $form->text('description', __('Description'));
         $form->text('category', __('Category'));
-        $form->image('image_column')->thumbnail([
-            'small' => [100, 100],
-            'small' => [200, 200],
-            'small' => [300, 300],
-        ]);;
-        $form->text('tags', __('Tags'));
-        $form->text('socialmedia', __('Social Media'));
+        $form->text('tags', __('Tag'));
+        $form->text('socialmedia', __('Social Media')); 
+        $form->image('picture', __('Picture'));
+     
        
+
         return $form;
     }
 }

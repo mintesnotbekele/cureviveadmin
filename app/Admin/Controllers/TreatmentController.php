@@ -31,7 +31,10 @@ class TreatmentController extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
         $grid->column('description', __('Description'));
-        $grid->column('testimony', __('Testimony'));
+        $grid->column('background', __('Background'));
+        $grid->column('background', 'Preview Image')->display(function ($imagePath) {
+            return '<img src="'. asset($imagePath) .'" style="max-width:100px;max-height:100px;">';
+        });
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -65,7 +68,7 @@ class TreatmentController extends AdminController
 
         $form->text('name', __('Name'));
         $form->text('description', __('Description'));
-        
+        $form->image('background', __('Background'));
         return $form;
     }
 }

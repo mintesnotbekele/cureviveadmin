@@ -22,5 +22,7 @@ Route::group([
     $router->resource('quotes', QuoteController::class);
     $router->resource('researchpapers', ResearchPaperController::class);
     $router->resource('testimonials', TestimonialController::class);
+    $router->resource('teams', TeamController::class);
+    $router->resource('books', BookController::class);
 
 });
