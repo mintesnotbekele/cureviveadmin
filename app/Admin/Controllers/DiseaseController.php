@@ -29,7 +29,9 @@ class DiseaseController extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
         $grid->column('description', __('Description'));
-        $grid->column('picture', __('Picture'));
+        $grid->column('picture', 'Preview Image')->display(function ($imagePath) {
+            return '<img src="'. asset($imagePath) .'" style="max-width:100px;max-height:100px;">';
+        });
         $grid->column('videolink', __('Video Link'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
@@ -63,7 +65,7 @@ class DiseaseController extends AdminController
 
         $form->text('name', __('Name'));
         $form->text('description', __('Description'));
-        $form->text('picture', __('Picture'));
+        $form->image('picture', __('Picture'));
         $form->text('videolink', __('videolink'));
         
 
