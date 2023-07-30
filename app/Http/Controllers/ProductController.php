@@ -11,4 +11,12 @@ class ProductController extends Controller
     {
         return product::latest()->get();
     }
+        /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        return product::findOrFail($id);
+    }
+
 }

@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\book;
+use App\Models\sectiontwo;
 use Illuminate\Http\Request;
 
-class BookController extends Controller
+class SectiontwoController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return book::latest()->get();
+        //
     }
 
     /**
@@ -20,7 +20,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        
+        //
     }
 
     /**
@@ -28,23 +28,13 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        
-      
-            $post = new book;
-            $post->name = $request->name;
-            $post->email = $request->email;
-            $post->treatmentfor = $request->treatmentfor;
-            $post->phone = $request->phone;
-            $post->description = $request->description;
-            $post->save();
-            return redirect('add-blog-post-form')->with('status', 'Blog Post Form Data Has Been inserted');
-        
+        //
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(book $book)
+    public function show(sectiontwo $sectiontwo)
     {
         //
     }
@@ -52,7 +42,7 @@ class BookController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(book $book)
+    public function edit(sectiontwo $sectiontwo)
     {
         //
     }
@@ -60,7 +50,7 @@ class BookController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, book $book)
+    public function update(Request $request, sectiontwo $sectiontwo)
     {
         //
     }
@@ -68,7 +58,7 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(book $book)
+    public function destroy(sectiontwo $sectiontwo)
     {
         //
     }

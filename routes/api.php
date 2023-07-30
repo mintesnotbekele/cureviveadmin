@@ -11,6 +11,8 @@ use App\Http\Controllers\ResearchPaperController;
 use App\Http\Controllers\TreatmentController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DiseaseController;
+use App\Http\Controllers\BookController;
+use App\Http\Controllers\TeamController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,6 +41,8 @@ Route::resource('researchpaper', ResearchPaperController::class);
 Route::resource('treatment', TreatmentController::class);
 Route::resource('category', CategoryController::class);
 Route::resource('disease', DiseaseController::class);
+Route::resource('books', BookController::class);
+Route::resource('teams', TeamController::class);
 
 
 

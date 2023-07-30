@@ -2,20 +2,20 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\researchpaper;
+use App\Models\sectiontwo;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
-class ResearchPaperController extends AdminController
+class SectionTwoController extends AdminController
 {
     /**
      * Title for current resource.
      *
      * @var string
      */
-    protected $title = 'researchpaper';
+    protected $title = 'sectiontwo';
 
     /**
      * Make a grid builder.
@@ -24,13 +24,14 @@ class ResearchPaperController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new researchpaper());
+        $grid = new Grid(new sectiontwo());
 
-        $grid->column('id', __('Id'));
-        $grid->column('title', __('Title'));
-        $grid->column('category', __('Category'));
-        $grid->column('file', __('Link'));
-        $grid->column('description', __('Description'));
+        $grid->column('title', __('title ')); 
+        $grid->column('description', __('description '));
+        
+        $grid->column('picture', 'Preview Image')->display(function ($imagePath) {
+            return '<img src="'. asset($imagePath) .'" style="max-width:100px;max-height:100px;">';
+        });
 
         return $grid;
     }
@@ -43,7 +44,7 @@ class ResearchPaperController extends AdminController
      */
     protected function detail($id)
     {
-        $show = new Show(researchpaper::findOrFail($id));
+        $show = new Show(sectiontwo::findOrFail($id));
 
 
 
@@ -57,13 +58,12 @@ class ResearchPaperController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new researchpaper());
+        $form = new Form(new sectiontwo());
 
         $form->text('title', __('Title'));
-        $form->text('category', __('Category'));
         $form->text('description', __('Description'));
-        $form->file('file', __('File'));
-        
+        $form->image('picture', __('Picture'));
+
         return $form;
     }
 }

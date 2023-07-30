@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('newsandarticles', function (Blueprint $table) {
+        Schema::create('sectionones', function (Blueprint $table) {
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->string('category');
             $table->string('picture');
-            $table->string('tags');
-            $table->string('socialmedia');
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('newsandarticles');
+        Schema::dropIfExists('sectionones');
     }
 };

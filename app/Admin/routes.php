@@ -24,5 +24,8 @@ Route::group([
     $router->resource('testimonials', TestimonialController::class);
     $router->resource('teams', TeamController::class);
     $router->resource('books', BookController::class);
+    $router->resource('sectionones', SectionOneController::class);
+    $router->resource('sectiontwos', SectionTwoController::class);
 
+    
 });

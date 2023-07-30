@@ -27,9 +27,20 @@ class ProductController extends AdminController
         $grid = new Grid(new product());
 
         $grid->column('id', __('Id'));
+
         $grid->column('name', __('Name'));
-        $grid->column('category', __('Category'));
-       
+
+        $grid->column('medicinalroperty', __('Medicinal Property'));
+
+        $grid->column('shelflife', __('Shelf Life'));
+        $grid->column('storage', __('storage'));
+        $grid->column('size', __('size')); 
+        $grid->column('application', __('application'));
+        $grid->column('description', __('description '));
+        $grid->column('type', __('type '));
+        $grid->column('picture', 'Preview Image')->display(function ($imagePath) {
+            return '<img src="'. asset($imagePath) .'" style="max-width:100px;max-height:100px;">';
+        });
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -61,8 +72,15 @@ class ProductController extends AdminController
         $form = new Form(new product());
 
         $form->text('name', __('Name'));
-        $form->text('category', __('Category'));
-        
+        $form->text('medicinalroperty', __('medicinal property'));
+        $form->text('shelflife', __('Shelf Life'));
+        $form->text('storage', __('Storage'));
+        $form->text('size', __('Size'));
+        $form->text('type', __('Type'));
+        $form->text('application', __('Application'));
+        $form->text('description', __('Description'));
+        $form->image('picture', __('Picture'));
+
 
         return $form;
     }
