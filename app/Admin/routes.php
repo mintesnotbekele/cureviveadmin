@@ -26,6 +26,7 @@ Route::group([
     $router->resource('books', BookController::class);
     $router->resource('sectionones', SectionOneController::class);
     $router->resource('sectiontwos', SectionTwoController::class);
-
+    $router->resource('sectiononetreatments', SectiononetreatmentController::class);
+    $router->resource('sectiontwotreatments', SectiontwotreatmentController::class);
     
 });

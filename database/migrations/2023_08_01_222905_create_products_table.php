@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('shelflife');
             $table->string('storage');
             $table->string('size');
+            $table->string('quotes');
+            $table->string('content');
             $table->string('application');
             $table->string('description');
             $table->string('type');

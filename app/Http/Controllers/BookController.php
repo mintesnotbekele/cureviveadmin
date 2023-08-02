@@ -28,8 +28,6 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        
-      
             $post = new book;
             $post->name = $request->name;
             $post->email = $request->email;
@@ -37,7 +35,9 @@ class BookController extends Controller
             $post->phone = $request->phone;
             $post->description = $request->description;
             $post->save();
-            return redirect('add-blog-post-form')->with('status', 'Blog Post Form Data Has Been inserted');
+            return response()->json([
+                'message' => 'successfully booked'
+            ]);
         
     }
 

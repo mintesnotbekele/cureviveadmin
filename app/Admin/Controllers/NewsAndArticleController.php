@@ -35,7 +35,6 @@ class NewsAndArticleController extends AdminController
         $grid->column('picture', 'Preview Image')->display(function ($imagePath) {
             return '<img src="'. asset($imagePath) .'" style="max-width:100px;max-height:100px;">';
         });
-     
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
  
@@ -66,11 +65,12 @@ class NewsAndArticleController extends AdminController
     protected function form()
     {
         $form = new Form(new newsandarticle());
-
+        $form->ckeditor('articlecontent');
         $form->text('title', __('Title'));
         $form->text('description', __('Description'));
         $form->text('category', __('Category'));
         $form->text('tags', __('Tag'));
+        $form->text('quotes', __('Quotes'));
         $form->text('socialmedia', __('Social Media')); 
         $form->image('picture', __('Picture'));
      

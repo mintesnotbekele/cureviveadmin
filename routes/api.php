@@ -13,6 +13,12 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DiseaseController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\SectiononeController;
+use App\Http\Controllers\SectiontwoController;
+use App\Http\Controllers\SectiononetreatmentController;
+use App\Http\Controllers\SectiontwotreatmentController;
+use App\Http\Controllers\Api\AuthController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,13 +31,16 @@ use App\Http\Controllers\TeamController;
 |
 */
 
+
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/using', function () {
-    return response()->json(['name' => 'John', 'email' => 'john@example.com']);
-});
+Route::apiResource('posts', PostController::class)->middleware('auth:sanctum');
 
+ //Route::post('register', RegisterController::class);
+ //Route::post('login', 'login');
+ Route::post('/auth/register', [AuthController::class, 'createUser']);
+Route::post('/auth/login', [AuthController::class, 'loginUser']);   
 Route::resource('newsAndarticle', NewsAndArticleController::class);
 Route::resource('quote', QuoteController::class);
 Route::resource('faq', FaqController::class);
@@ -43,6 +52,11 @@ Route::resource('category', CategoryController::class);
 Route::resource('disease', DiseaseController::class);
 Route::resource('books', BookController::class);
 Route::resource('teams', TeamController::class);
+Route::resource('sectionone', SectionOneController::class);
+Route::resource('sectiontwo', SectionTwoController::class);
+Route::resource('sectiononeTreatment', SectiononetreatmentController::class);
+Route::resource('sectiontwoTreatment', SectiontwotreatmentController::class);
+
 
 
 

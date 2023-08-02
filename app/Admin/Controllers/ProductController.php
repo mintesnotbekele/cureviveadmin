@@ -41,6 +41,7 @@ class ProductController extends AdminController
         $grid->column('picture', 'Preview Image')->display(function ($imagePath) {
             return '<img src="'. asset($imagePath) .'" style="max-width:100px;max-height:100px;">';
         });
+
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
 
@@ -80,7 +81,8 @@ class ProductController extends AdminController
         $form->text('application', __('Application'));
         $form->text('description', __('Description'));
         $form->image('picture', __('Picture'));
-
+        $form->text('quotes', __('Quotes'));
+        $form->ckeditor('content');
 
         return $form;
     }

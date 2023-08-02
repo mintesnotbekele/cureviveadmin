@@ -12,7 +12,7 @@ class SectiononeController extends Controller
      */
     public function index()
     {
-        //
+        return sectionone::latest()->get();
     }
 
     /**
