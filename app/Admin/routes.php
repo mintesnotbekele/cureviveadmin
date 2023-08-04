@@ -28,5 +28,7 @@ Route::group([
     $router->resource('sectiontwos', SectionTwoController::class);
     $router->resource('sectiononetreatments', SectiononetreatmentController::class);
     $router->resource('sectiontwotreatments', SectiontwotreatmentController::class);
-    
+    $router->resource('replies', ReplyController::class);
+    $router->resource('likes', LikeController::class);
+    $router->resource('threads', ThreadController::class);
 });

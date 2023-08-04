@@ -18,6 +18,10 @@ use App\Http\Controllers\SectiontwoController;
 use App\Http\Controllers\SectiononetreatmentController;
 use App\Http\Controllers\SectiontwotreatmentController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\ThreadController;
+use App\Http\Controllers\ReplyController;
+use App\Http\Controllers\LikeController;
+
 
 
 /*
@@ -35,6 +39,8 @@ use App\Http\Controllers\Api\AuthController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
 Route::apiResource('posts', PostController::class)->middleware('auth:sanctum');
 
  //Route::post('register', RegisterController::class);
@@ -56,7 +62,21 @@ Route::resource('sectionone', SectionOneController::class);
 Route::resource('sectiontwo', SectionTwoController::class);
 Route::resource('sectiononeTreatment', SectiononetreatmentController::class);
 Route::resource('sectiontwoTreatment', SectiontwotreatmentController::class);
+Route::resource('threads', ThreadController::class);
+Route::resource('replies', ReplyController::class);
+Route::resource('threads', ThreadController::class);
+Route::resource('replies', ReplyController::class);
+Route::resource('likes', LikeController::class);
+Route::get('/repliedforum/{id}', [ReplyController::class, 'repliedforum']);  
+Route::get('/likecounter/{id}', [LikeController::class, 'likecounter']);  
+Route::get('/likedby/{id}', [LikeController::class, 'likedby']);  
+Route::delete('/dislike', [LikeController::class, 'destroy']);  
 
-
-
+// Route::group(['middleware' => 'auth:sanctum'], function() {
+//     Route::get('logout', [AuthController::class, 'logout']);
+//     Route::get('user', [AuthController::class, 'user']);
+//     Route::resource('threads', ThreadController::class);
+//     Route::resource('replies', ReplyController::class);
+//     Route::resource('likes', LikesController::class);
+//   });
 

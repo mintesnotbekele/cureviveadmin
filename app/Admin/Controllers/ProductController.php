@@ -71,7 +71,8 @@ class ProductController extends AdminController
     protected function form()
     {
         $form = new Form(new product());
-
+        
+        $form->ckeditor('productcontent');
         $form->text('name', __('Name'));
         $form->text('medicinalroperty', __('medicinal property'));
         $form->text('shelflife', __('Shelf Life'));
@@ -82,7 +83,7 @@ class ProductController extends AdminController
         $form->text('description', __('Description'));
         $form->image('picture', __('Picture'));
         $form->text('quotes', __('Quotes'));
-        $form->ckeditor('content');
+        
 
         return $form;
     }
