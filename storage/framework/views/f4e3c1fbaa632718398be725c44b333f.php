@@ -1,0 +1,1 @@
+<time class="timestamp" datetime="<?php echo e($carbon, false); ?>" title="<?php echo e($carbon->toDayDateTimeString(), false); ?>"><?php echo e($carbon->diffForHumans(), false); ?></time><?php /**PATH /media/mente/F4A81F8DA81F4D8C/projects/prophecius/curevive-admin-panel/resources/views/forum/partials/timestamp.blade.php ENDPATH**/ ?>

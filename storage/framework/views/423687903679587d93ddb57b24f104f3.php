@@ -1,0 +1,2 @@
+<input <?php echo e($attributes->merge(['type' => 'text', 'class' => 'px-3 py-1 border-gray-300 focus:border-blue-500 focus:ring-blue-500 rounded-md border shadow-sm']), false); ?>>
+<?php /**PATH /media/mente/F4A81F8DA81F4D8C/projects/prophecius/curevive-admin-panel/resources/views/components/forum/input.blade.php ENDPATH**/ ?>
