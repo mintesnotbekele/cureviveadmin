@@ -7604,3 +7604,18 @@
 #13 /media/mente/F4A81F8DA81F4D8C/projects/prophecius/curevive-admin-panel/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
 #14 {main}
 "} 
+[2023-08-20 17:55:00] local.ERROR: The "--store" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--store\" option does not exist. at /media/mente/F4A81F8DA81F4D8C/projects/prophecius/curevive-admin-panel/vendor/symfony/console/Input/ArgvInput.php:223)
+[stacktrace]
+#0 /media/mente/F4A81F8DA81F4D8C/projects/prophecius/curevive-admin-panel/vendor/symfony/console/Input/ArgvInput.php(152): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption()
+#1 /media/mente/F4A81F8DA81F4D8C/projects/prophecius/curevive-admin-panel/vendor/symfony/console/Input/ArgvInput.php(85): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption()
+#2 /media/mente/F4A81F8DA81F4D8C/projects/prophecius/curevive-admin-panel/vendor/symfony/console/Input/ArgvInput.php(74): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken()
+#3 /media/mente/F4A81F8DA81F4D8C/projects/prophecius/curevive-admin-panel/vendor/symfony/console/Input/Input.php(55): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 /media/mente/F4A81F8DA81F4D8C/projects/prophecius/curevive-admin-panel/vendor/symfony/console/Command/Command.php(285): Symfony\\Component\\Console\\Input\\Input->bind()
+#5 /media/mente/F4A81F8DA81F4D8C/projects/prophecius/curevive-admin-panel/vendor/laravel/framework/src/Illuminate/Console/Command.php(181): Symfony\\Component\\Console\\Command\\Command->run()
+#6 /media/mente/F4A81F8DA81F4D8C/projects/prophecius/curevive-admin-panel/vendor/symfony/console/Application.php(1081): Illuminate\\Console\\Command->run()
+#7 /media/mente/F4A81F8DA81F4D8C/projects/prophecius/curevive-admin-panel/vendor/symfony/console/Application.php(320): Symfony\\Component\\Console\\Application->doRunCommand()
+#8 /media/mente/F4A81F8DA81F4D8C/projects/prophecius/curevive-admin-panel/vendor/symfony/console/Application.php(174): Symfony\\Component\\Console\\Application->doRun()
+#9 /media/mente/F4A81F8DA81F4D8C/projects/prophecius/curevive-admin-panel/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#10 /media/mente/F4A81F8DA81F4D8C/projects/prophecius/curevive-admin-panel/artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle()
+#11 {main}
+"} 
