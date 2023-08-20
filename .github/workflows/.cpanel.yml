@@ -11,17 +11,23 @@ jobs:
         runs-on: ubuntu-latest
         name: Build and Push
         steps:
-          - name: git-checkout
+          - name: Checkout
             uses: actions/checkout@v2
+          - name: Deployment
     
-          - name: Install all dependencies
-            run: npm install
-    
-          - name: Build
-            run: npm run build 
+            uses: appleboy/ssh-action@main
             env:
               REPO: self
-              BRANCH: build 
-              FOLDER: build 
+              BRANCH: master  
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
               MESSAGE: "Build: ({sha}) {msg}"
+      
+              script: |
+      
+                cd /home/prophecius/public_html/curevive.prophecius.com
+      
+                git checkout -f 
+      
+                git pull
+          
+            
