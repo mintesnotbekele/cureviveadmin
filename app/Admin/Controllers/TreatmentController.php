@@ -65,7 +65,9 @@ class TreatmentController extends AdminController
 
         $form->text('name', __('Name'));
         $form->text('description', __('Description'));
+        $form->text('details', __('Details'));
         $form->image('background', __('Picture'));
+        $form->image('slidericon', __('SLiderIcon'));
         return $form;
     }
 }

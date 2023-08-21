@@ -15,11 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
+            $table->string('details');
+            $table->string('slidericon');
             $table->string('background');
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
