@@ -31,6 +31,9 @@ class TreatmentController extends AdminController
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
         $grid->column('description', __('Description'));
+        $grid->column('slidericon', 'Preview Image')->display(function ($imagePath) {
+            return '<img src="'. asset($imagePath) .'" style="max-width:100px;max-height:100px;">';
+        });
         $grid->column('testimony', __('Testimony'));
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
